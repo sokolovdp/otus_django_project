@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block body_block %}
-    <h1>AUTH LOGIN PAGE</h1>
+    <h1 class="text-center">AUTH LOGIN PAGE</h1>
     <form action="{% url 'main_app:user_login'  %}" method="POST">
         {% csrf_token %}
         <label for="username">Username:</label>

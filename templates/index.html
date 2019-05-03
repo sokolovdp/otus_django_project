@@ -2,9 +2,18 @@
 {% load staticfiles %}
 
 {% block body_block %}
-
-    <h1>AUTH HOME PAGE</h1>
-    <img src="{% static 'images/dog_surprize.jpg' %}" alt="image">
+    <div class="container-fluid">
+        <h1 class="text-center">HOME PAGE</h1>
+        <div class="media text-center">
+            <img src="{% static 'images/dog_surprize.jpg' %}" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+            {#        <div class="media-body">#}
+            {#            <h5 class="mt-0">HOME PAGE</h5>#}
+            {#            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus#}
+            {#            odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate#}
+            {#            fringilla. Donec lacinia congue felis in faucibus.#}
+            {#        </div>#}
+        </div>
+    </div>
 
 
 {% endblock %}
