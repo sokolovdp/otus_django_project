@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Otus by Sokol</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <ul class="nav navbar-nav">
-            <li><a class="navbar-link" href="{% url 'index' %}">Home</a></li>
-            <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-            {% if user.is_authenticated %}
-                <li><a class="navbar-link" href="{% url 'main_app:user_logout' %}">Logout</a></li>
-            {% else %}
-                <li><a class="navbar-link" href="{% url 'main_app:register' %}">Register</a></li>
-                <li><a class="navbar-link" href="{% url 'main_app:user_login' %}">Login</a></li>
-            {% endif %}
-        </ul>
-    </div>
-</nav>
+<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+    </li>
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:user_logout' %}">Logout</a>
+        </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:register' %}">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:user_login' %}">Login</a>
+        </li>
+    {% endif %}
+</ul>
 
-<div class="jumbotron">
-    {% block body_block %}
-    {% endblock %}
+<div class="jumbotron-fluid">
+    <div class="container-fluid">
+        {% block body_block %}
+        {% endblock %}
+    </div>
 </div>
 
 </body>
