@@ -12,10 +12,10 @@
             <li><a class="navbar-link" href="{% url 'index' %}">Home</a></li>
             <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
             {% if user.is_authenticated %}
-                <li><a class="navbar-link" href="{% url 'otus_django_project:user_logout' %}">Logout</a></li>
+                <li><a class="navbar-link" href="{% url 'main_app:user_logout' %}">Logout</a></li>
             {% else %}
-                <li><a class="navbar-link" href="{% url 'otus_django_project:register' %}">Register</a></li>
-                <li><a class="navbar-link" href="{% url 'otus_django_project:user_login' %}">Login</a></li>
+                <li><a class="navbar-link" href="{% url 'main_app:register' %}">Register</a></li>
+                <li><a class="navbar-link" href="{% url 'main_app:user_login' %}">Login</a></li>
             {% endif %}
         </ul>
     </div>

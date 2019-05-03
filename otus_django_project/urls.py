@@ -24,6 +24,6 @@ from main_app import views, urls
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^index/', views.index, name='index'),
-    url(r'^sokol/', include('urls')),
+    url(r'^sokol/', include(urls)),
     url(r'^admin/', admin.site.urls),
 ]
