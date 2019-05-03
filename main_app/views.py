@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
 from main_app.forms import UserForm, UserProfileInfoForm
+from .logger import django_logger
+
+django_logger.info('----START----')
 
 
 def index(request):
@@ -32,7 +35,7 @@ def user_login(request):
             else:
                 return HttpResponse('ACCOUNT IS NOT ACTIVE!')
         else:
-            print("!!! invalid login -> " + username + " : " + password)
+            django_logger.info(f'invalid login: "{username}" password: "{password}"')
             return HttpResponse('INVALID USERNAME OR PASSWORD!')
     else:
         return render(request, 'login.html', {})
