@@ -67,7 +67,9 @@ def register(request):
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
 
-    context = {'user_form': user_form,
-               'profile_form': profile_form,
-               'registered': registered}
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'registered': registered
+    }
     return render(request, 'registration.html', context=context)
