@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block body_block %}
+    <h1>AUTH LOGIN PAGE</h1>
+    <form action="{% url 'otus_django_login:user_login'  %}" method="POST">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"  placeholder="имя">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password"  placeholder="пароль">
+        <input type="submit" value="Логин">
+    </form>
+{% endblock %}
