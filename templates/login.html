@@ -3,7 +3,7 @@
 
 {% block body_block %}
     <h1>AUTH LOGIN PAGE</h1>
-    <form action="{% url 'otus_django_login:user_login'  %}" method="POST">
+    <form action="{% url 'main_app:user_login'  %}" method="POST">
         {% csrf_token %}
         <label for="username">Username:</label>
         <input type="text" name="username" id="username"  placeholder="имя">
