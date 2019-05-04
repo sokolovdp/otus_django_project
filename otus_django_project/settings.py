@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'rest_framework',
     'main_app',
 ]
 
@@ -151,3 +152,12 @@ MEDIA_ROOT = MEDIA_DIR
 LOGIN_URL = '/main_app/user_login'
 
 INTERNAL_IPS = ['127.0.0.1', ]
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
