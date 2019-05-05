@@ -44,6 +44,7 @@ def user_login(request):
 
 def register(request):
     registered = False
+    errors_string = None
 
     if request.method == "POST":
         user_form = UserForm(data=request.POST)
@@ -63,7 +64,12 @@ def register(request):
             profile.save()
             registered = True
         else:
-            print(user_form.errors, profile_form.errors)
+            all_errors = []
+            for err_list in user_form.errors.values():
+                all_errors.append(' '.join(err_list))
+            for err_list in profile_form.errors.values():
+                all_errors += ' '.join(err_list)
+            errors_string = ' '.join(all_errors)
     else:
         registered = True if request.user.username else False
         user_form = UserForm()
@@ -71,6 +77,7 @@ def register(request):
 
     context = {
         'active': 'register',
+        'errors': errors_string,
         'user_form': user_form,
         'profile_form': profile_form,
         'registered': registered
