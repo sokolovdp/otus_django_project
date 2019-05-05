@@ -2,13 +2,21 @@
 {% load staticfiles %}
 
 {% block body_block %}
-    <h1 class="text-center">AUTH LOGIN PAGE</h1>
-    <form action="{% url 'main_app:user_login' %}" method="POST">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" placeholder="имя">
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" placeholder="пароль">
-        <input type="submit" value="Логин">
-    </form>
+    <div class="container-fluid">
+        <h1 class="text-center">AUTH LOGIN PAGE</h1>
+        <form class="form-inline justify-content-center" action="{% url 'main_app:user_login' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group mb-2">
+                <label for="username">Username:&nbsp</label>
+                <input type="text" class="form-control" id="username" name="username"
+                       placeholder="Enter password">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for=password">Password:&nbsp</label>
+                <input type="password" class="form-control" id=password"
+                       name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 {% endblock %}
