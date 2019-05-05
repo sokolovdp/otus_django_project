@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'rest_framework',
+    'crispy_forms',
     'main_app',
     'api',
 ]
@@ -170,3 +171,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     )
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
