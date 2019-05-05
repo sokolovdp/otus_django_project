@@ -11,7 +11,7 @@ django_logger.info('----START----')
 
 
 def index(request):
-    context = {}
+    context = {'active': "home"}
     return render(request, 'index.html', context=context)
 
 
@@ -38,7 +38,8 @@ def user_login(request):
             django_logger.info(f'invalid login: "{username}" password: "{password}"')
             return HttpResponse('INVALID USERNAME OR PASSWORD!')
     else:
-        return render(request, 'login.html', {})
+        context = {'active': "login"}
+        return render(request, 'login.html', context=context)
 
 
 def register(request):
@@ -68,6 +69,7 @@ def register(request):
         profile_form = UserProfileInfoForm()
 
     context = {
+        'active': 'register',
         'user_form': user_form,
         'profile_form': profile_form,
         'registered': registered

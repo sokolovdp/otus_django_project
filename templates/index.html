@@ -2,13 +2,14 @@
 {% load staticfiles %}
 
 {% block body_block %}
-    <div class="container-fluid">
-        <h1 class="text-center">HOME PAGE</h1>
-        <div class="media text-center">
-            <img src="{% static 'images/dog_surprize.jpg' %}" class="img-fluid mx-auto d-block"
-                 alt="Responsive image">
-        </div>
+
+    <div class="alert alert-success text-center" role="alert">
+        Home page
     </div>
 
+    <div class="media text-center">
+        <img src="{% static 'images/dog_surprize.jpg' %}" class="img-fluid mx-auto d-block"
+             alt="Responsive image">
+    </div>
 
 {% endblock %}
