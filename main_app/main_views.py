@@ -22,6 +22,7 @@ def user_logout(request):
 
 
 def user_login(request):
+    errors_string = None
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -33,13 +34,13 @@ def user_login(request):
                 login(request, user)
                 return HttpResponseRedirect(reverse('index'))
             else:
-                return HttpResponse('ACCOUNT IS NOT ACTIVE!')
+                errors_string = 'ACCOUNT IS NOT ACTIVE!'
         else:
             django_logger.info(f'invalid login: "{username}" password: "{password}"')
-            return HttpResponse('INVALID USERNAME OR PASSWORD!')
-    else:
-        context = {'active': "login"}
-        return render(request, 'login.html', context=context)
+            errors_string = 'INVALID USERNAME OR PASSWORD!'
+
+    context = {'active': "login", 'errors': errors_string}
+    return render(request, 'login.html', context=context)
 
 
 def register(request):
