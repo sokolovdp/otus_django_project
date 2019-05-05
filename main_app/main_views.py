@@ -65,6 +65,7 @@ def register(request):
         else:
             print(user_form.errors, profile_form.errors)
     else:
+        registered = True if request.user.username else False
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
 

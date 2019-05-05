@@ -3,13 +3,14 @@
 
 {% block body_block %}
 
-    <div class="alert alert-danger text-center" role="alert">
-        Registration page
-    </div>
     {% if registered %}
-        <h2>Thank you for registering!</h2>
+        <div class="alert alert-success text-center" role="alert">
+            You are registered
+        </div>
     {% else %}
-        <h2>Register here</h2>
+        <div class="alert alert-danger text-center" role="alert">
+            Registration page
+        </div>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ user_form.as_p }}
