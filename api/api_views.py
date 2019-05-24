@@ -25,7 +25,7 @@ class Test(APIView):
             {
                 "commit": str(headcommit),
                 "branch": str(branch),
-                "commit_date": time.strftime("%a, %d %b %Y %H:%M", time.gmtime(headcommit.committed_date))
+                "commit_date": time.strftime("%Y-%m-%dT%H:%M", time.gmtime(headcommit.committed_date))
 
             }
         )
