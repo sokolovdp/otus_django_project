@@ -174,6 +174,9 @@ REST_FRAMEWORK = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+
+# Version homework implementation
+
 from git import Repo
 import time
 from datetime import datetime
@@ -181,7 +184,7 @@ from datetime import datetime
 repo = Repo()
 active_branch = repo.active_branch.name
 head_commit = repo.heads.master.commit
-start_time = datetime.now()
+start_time = datetime.now().replace(microsecond=0)
 
 with open('_version', 'rt') as version_file:
     _version = version_file.readline().strip()
