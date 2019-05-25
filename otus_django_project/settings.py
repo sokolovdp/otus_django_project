@@ -173,3 +173,23 @@ REST_FRAMEWORK = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+from git import Repo
+import time
+from datetime import datetime
+
+repo = Repo()
+active_branch = repo.active_branch.name
+head_commit = repo.heads.master.commit
+start_time = datetime.now()
+
+with open('_version', 'rt') as version_file:
+    _version = version_file.readline().strip()
+
+APPLICATION_VERSION = {
+    "commit": str(head_commit),
+    "branch": str(active_branch),
+    "commit_date": time.strftime("%Y-%m-%dT%H:%M", time.gmtime(head_commit.committed_date)),
+    "version": _version,
+    "started": start_time
+}

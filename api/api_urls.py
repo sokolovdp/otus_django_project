@@ -1,9 +1,9 @@
 from django.urls import path
 
-from .api_views import Test
+from .api_views import Version
 
 app_name = 'api'
 
 urlpatterns = [
-    path('test/', Test.as_view(), name='test'),
+    path('version/', Version.as_view(), name='version'),
 ]
