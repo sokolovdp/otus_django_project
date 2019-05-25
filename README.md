@@ -1,6 +1,6 @@
 # Demo web site in Django with implementation of simple user authorization scheme
 
-# Added API /api/version/ to show application details in the following form:
+# Added API */api/version/* to show application details in the following form:
 
 ```
 {
@@ -12,6 +12,10 @@
     "uptime_seconds": 2
 }
 ```
+
+Version of the application must be stored in the _version file in the project root directory
+
+
 
 # Run application
 ```
