@@ -20,4 +20,4 @@ class Version(APIView):
         result = settings.APPLICATION_VERSION
         uptime = datetime.now() - result['started']
         result['uptime_seconds'] = uptime.seconds
-        return Response(settings.APPLICATION_VERSION)
+        return Response(result)

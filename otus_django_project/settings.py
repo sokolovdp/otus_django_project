@@ -192,7 +192,7 @@ with open('_version', 'rt') as version_file:
 APPLICATION_VERSION = {
     "commit": str(head_commit),
     "branch": str(active_branch),
-    "commit_date": time.strftime("%Y-%m-%dT%H:%M", time.gmtime(head_commit.committed_date)),
+    "commit_date": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(head_commit.committed_date)),
     "version": _version,
     "started": start_time
 }

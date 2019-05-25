@@ -4,14 +4,15 @@
 
 ```
 {
-    "commit": "ebed9221e0b4787a400622919cf34459a0b51b77",
+    "commit": "dbd20ca61f2a0770a6465dec0a5108bedd17819a",
     "branch": "master",
-    "commit_date": "2019-05-25T08:33",
+    "commit_date": "2019-05-25T08:55:13Z",
     "version": "release_v1.16.2",
-    "started": "2019-05-25T08:34:18",
-    "uptime_seconds": 2
+    "started": "2019-05-25T09:22:21",
+    "uptime_seconds": 7
 }
 ```
+1) Time is shown in GMT format
 
 1) Version of the application must be stored in the **_version** file in the project root directory
 2) In **settings.py** was added the following code:
