@@ -14,8 +14,8 @@
 ```
 1) Time is shown in GMT format
 
-1) Version of the application must be stored in the **_version** file in the project root directory
-2) In **settings.py** was added the following code:
+2) Version of the application must be stored in the **_version** file in the project root directory
+3) In **settings.py** was added the following code:
 
 ```
 
