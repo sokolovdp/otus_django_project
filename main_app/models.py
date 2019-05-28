@@ -12,3 +12,14 @@ class UserProfileInfo(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class ItemModel(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=80, null=False)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=False)
+    description = models.CharField(max_length=2000, null=False)
+    image = models.CharField(max_length=256, null=False)
+
+    class Meta:
+        db_table = 'items'
