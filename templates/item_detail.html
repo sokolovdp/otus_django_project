@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block body %}
+{% block body_block %}
     <h1>ОПИСАНИЕ ТОВАРА</h1>
     <h2> № {{ item.id }} &nbsp;&nbsp; Название: <em>{{ item.name }}</em> &nbsp;&nbsp; Цена: {{ item.price }} руб.
     </h2>
@@ -11,7 +11,7 @@
     <img src="{%  static item.image %}" alt="Embedded Image" style="height:300px;"/>
     <hr>
     <br><br>
-    <a href="/items/">К списку товаров</a>
+    <a href="/main/items_list/">К списку товаров</a>
     <br>
     <a href="/">На главную страницу</a>
     <br><br><br><br>

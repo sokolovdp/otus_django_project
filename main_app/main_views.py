@@ -93,3 +93,11 @@ def items_list(request):
         'items': list(ItemModel.objects.all())
     }
     return render(request, 'items_list.html', context=context)
+
+
+@login_required
+def item_view(request, pk):
+    context = {
+        'item': ItemModel.objects.get(pk=pk)
+    }
+    return render(request, 'item_detail.html', context=context)

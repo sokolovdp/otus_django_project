@@ -11,6 +11,7 @@ class ItemTestCase(TestCase):
     """
         to keep database changes run test with --keepdb options
     """
+
     def setUp(self):
         fake = Faker('ru_RU')
         fake.add_provider(lorem)
@@ -22,7 +23,7 @@ class ItemTestCase(TestCase):
             description = fake.text(max_nb_chars=300, ext_word_list=None)
             image_file = f"image_{i}.jpg"
             item_params = dict(
-                id = None,
+                id=None,
                 name=name,
                 price=price,
                 description=description,

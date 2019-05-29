@@ -7,7 +7,7 @@
     <ul class=items>
         {%  if items %}
             {% for item in items %}
-                <li><h2><a href="/items/{{ item.id }}">Название: <em>{{ item.name }}</em> &nbsp; &nbsp; Цена:
+                <li><h2><a href="/main/item/{{ item.id }}">Название: <em>{{ item.name }}</em> &nbsp; &nbsp; Цена:
                     <em>{{ item.price }}</em>
                     руб.</a></h2>
                     <img src="{% static item.image %}" alt="Embedded Image" style="height:50px;"/>
