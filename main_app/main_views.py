@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
 from main_app.forms import UserForm, UserProfileInfoForm
+from main_app.models import ItemModel
 from .logger import django_logger
 
 django_logger.info('----START----')
@@ -89,6 +90,6 @@ def register(request):
 @login_required
 def items_list(request):
     context = {
-        'items': []
+        'items': list(ItemModel.objects.all())
     }
     return render(request, 'items_list.html', context=context)

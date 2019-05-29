@@ -1,3 +1,4 @@
+import json
 from django.test import TestCase
 
 from main_app.models import ItemModel
@@ -20,13 +21,15 @@ class ItemTestCase(TestCase):
             price = fake.pyint()
             description = fake.text(max_nb_chars=300, ext_word_list=None)
             image_file = f"image_{i}.jpg"
-            item = ItemModel.objects.create(
+            item_params = dict(
+                id = None,
                 name=name,
                 price=price,
                 description=description,
                 image=image_file
             )
-            print('created:', item.id, item.name, item.price)
+            ItemModel.objects.create(**item_params)
+            print(json.dumps(item_params, sort_keys=True, indent=4))
 
     def test_1(self):
         items = ItemModel.objects.all()
