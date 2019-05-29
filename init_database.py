@@ -23,4 +23,11 @@ class AnimalTestCase(TestCase):
                 description=description,
                 image=image_file
             )
+            item.save()
             print(item)
+
+    def test_1(self):
+        """Animals that can speak are correctly identified"""
+        items = ItemModel.objects.all()
+        self.assertEqual(len(items), 3)
+        print('--- 1sr test passed ---')

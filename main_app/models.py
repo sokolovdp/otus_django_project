@@ -15,7 +15,7 @@ class UserProfileInfo(models.Model):
 
 
 class ItemModel(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, auto_created=True)
     name = models.CharField(max_length=80, null=False)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     description = models.CharField(max_length=2000, null=False)
