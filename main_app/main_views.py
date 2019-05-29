@@ -84,3 +84,11 @@ def register(request):
         'registered': registered
     }
     return render(request, 'registration.html', context=context)
+
+
+@login_required
+def items_list(request):
+    context = {
+        'items': []
+    }
+    return render(request, 'items_list.html', context=context)

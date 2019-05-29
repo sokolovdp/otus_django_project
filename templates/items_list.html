@@ -9,7 +9,7 @@
                 <li><h2><a href="/items/{{ item.id }}">Название: <em>{{ item.name }}</em> &nbsp; &nbsp; Цена:
                     <em>{{ item.price }}</em>
                     руб.</a></h2>
-                    <img src="{{ url_for('static', filename=item.image) }}" alt="Embedded Image" style="height:50px;"/>
+                    <img src="{% static item.image %}" alt="Embedded Image" style="height:50px;"/>
             {% endfor %}
         {% else %}
              <li><em>Unbelievable. No entries here so far</em>
