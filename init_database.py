@@ -6,7 +6,10 @@ from faker import Faker
 from faker.providers import company, lorem
 
 
-class AnimalTestCase(TestCase):
+class ItemTestCase(TestCase):
+    """
+        to keep database changes run test with --keepdb options
+    """
     def setUp(self):
         fake = Faker('ru_RU')
         fake.add_provider(lorem)
@@ -23,11 +26,11 @@ class AnimalTestCase(TestCase):
                 description=description,
                 image=image_file
             )
-            item.save()
-            print(item)
+            print('created:', item.id, item.name, item.price)
 
     def test_1(self):
-        """Animals that can speak are correctly identified"""
         items = ItemModel.objects.all()
+        for item in items:
+            print('retrieve from db:', item.id, item.name, item.price)
         self.assertEqual(len(items), 3)
-        print('--- 1sr test passed ---')
+        print('--- 1st test passed ---')
