@@ -12,3 +12,14 @@ Django server will start at localhost:8000/
 python manage.py test --keepdb initial_test
 ```
 
+##  To get version number API: GET /api/version/
+```
+{
+    "commit": "1a2623f8f85fdb680a8be43956e1c767c59256a9",
+    "branch": "master",
+    "commit_date": "2019-05-29T17:02:03",
+    "version": "0.2",
+    "started": "2019-05-31T08:44:21",
+    "uptime_seconds": 4
+}
+```
