@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import re
+import time
+from datetime import datetime
+
+from git import Repo
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -177,20 +182,27 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Version homework implementation
 
-from git import Repo
-import time
-from datetime import datetime
-
 repo = Repo()
 active_branch = repo.active_branch.name
 head_commit = repo.heads.master.commit
 start_time = datetime.now().replace(microsecond=0)
 
 
+def get_version(package):
+    """
+    Return package version as listed in `__version__` in `init.py`.
+    """
+    init_py = open(os.path.join(package, '__init__.py')).read()
+    return re.match("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
+
+
+version = get_version('otus_django_project')
+
+
 APPLICATION_VERSION = {
     "commit": str(head_commit),
-    "branch": str(active_branch),
-    "commit_date": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(head_commit.committed_date)),
-    "version": "beta_123",
-    "started": start_time
+    "branch": active_branch,
+    "commit_date": time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime(head_commit.committed_date)),
+    "version": version,
+    "started": start_time,
 }
