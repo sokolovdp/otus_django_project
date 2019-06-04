@@ -6,12 +6,12 @@ from django.contrib.auth import authenticate, login, logout
 
 from main_app.forms import UserForm, UserProfileInfoForm
 from main_app.models import ItemModel
-from .logger import django_logger
+from otus_django_project.settings import django_logger
 
 django_logger.info('----START----')
 
 
-def index(request):
+def index_view(request):
     context = {'active': "home"}
     return render(request, 'index.html', context=context)
 

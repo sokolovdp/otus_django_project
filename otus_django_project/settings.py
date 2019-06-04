@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
 import re
 import time
 from datetime import datetime
+import logging.config
 
 from git import Repo
 
@@ -206,3 +208,24 @@ APPLICATION_VERSION = {
     "version": version,
     "started": start_time,
 }
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
+        },
+    },
+    'loggers': {
+        'django_logger': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}
+logging.config.dictConfig(LOGGING)
+django_logger = logging.getLogger(name='django_logger')
+

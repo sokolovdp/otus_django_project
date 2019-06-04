@@ -18,13 +18,14 @@ from django.urls import path, include
 from django.contrib import admin
 from .settings import DEBUG
 
-from main_app import main_views, main_urls
+from main_app import main_urls
+from main_app.main_views import index_view
 from api import api_urls
 
 
 urlpatterns = [
-    path('', main_views.index, name='index'),
-    path('index/', main_views.index, name='index'),
+    path('', index_view, name='index'),
+    path('index/', index_view, name='index'),
     path('admin/', admin.site.urls, name='admin'),
     path('main/', include(main_urls)),
     path('api/', include(api_urls)),
