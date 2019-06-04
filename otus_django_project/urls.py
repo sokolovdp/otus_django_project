@@ -28,7 +28,7 @@ urlpatterns = [
     path('index/', index_view, name='index'),
     path('admin/', admin.site.urls, name='admin'),
     path('main/', include(main_urls)),
-    path('api/', include(api_urls)),
+    path('api/v1/', include(api_urls)),
 ]
 
 if DEBUG:

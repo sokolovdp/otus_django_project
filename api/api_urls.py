@@ -1,9 +1,10 @@
 from django.urls import path
 
-from .api_views import Version
+from .api_views import VersionView, UserProfileView
 
 app_name = 'api'
 
 urlpatterns = [
-    path('version/', Version.as_view(), name='version'),
+    path('version/', VersionView.as_view(), name='version'),
+    path('users/', UserProfileView.as_view(), name='user_list'),
 ]
