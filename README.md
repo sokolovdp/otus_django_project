@@ -7,9 +7,10 @@ python manage.py runserver
 Django server will start at localhost:8000/
 
 
-## To load initial data into DB run initial_test with --keepdb option
+## To load initial data into DB run:
 ```
-python manage.py test --keepdb initial_test
+python manage.py loaddata ./main_app/fixtures/items.json
+
 ```
 
 ##  To get version number API: GET /api/version/
